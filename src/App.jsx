@@ -38,6 +38,16 @@ const formatDate = (isoDate) =>
     day: 'numeric',
   });
 
+const getWeatherIcon = (code) => {
+  if ([0, 1].includes(code)) return '☀️';
+  if ([2, 3].includes(code)) return '⛅';
+  if ([45, 48].includes(code)) return '🌫️';
+  if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return '🌧️';
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return '❄️';
+  if ([95, 96, 99].includes(code)) return '⛈️';
+  return '🌤️';
+};
+
 function App() {
   const [location, setLocation] = useState('New York');
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -107,6 +117,10 @@ function App() {
 
   return (
     <main className="app-shell">
+      <div className="glow glow-one" aria-hidden="true" />
+      <div className="glow glow-two" aria-hidden="true" />
+
+      <section className="weather-card fade-in">
       <section className="weather-card">
         <h1>Weather App</h1>
         <p className="subtitle">Check current weather and 5-day forecast.</p>
@@ -124,10 +138,21 @@ function App() {
           </button>
         </form>
 
+        {loading && <div className="loading-bar" aria-hidden="true" />}
         {error && <p className="error">{error}</p>}
 
         {currentWeather && (
           <>
+            <article className="current-weather slide-up">
+              <h2>{placeName}</h2>
+              <div className="condition-wrap">
+                <span className="weather-icon" role="img" aria-label="weather icon">
+                  {getWeatherIcon(currentWeather.weather_code)}
+                </span>
+                <p className="condition">
+                  {weatherCodeLabel[currentWeather.weather_code] ?? 'Unknown condition'}
+                </p>
+              </div>
             <article className="current-weather">
               <h2>{placeName}</h2>
               <p className="condition">
@@ -141,6 +166,17 @@ function App() {
               </ul>
             </article>
 
+            <section className="forecast slide-up">
+              <h3>5-Day Forecast</h3>
+              <div className="forecast-grid">
+                {forecast.map((day, index) => (
+                  <article
+                    key={day.date}
+                    className="forecast-item"
+                    style={{ animationDelay: `${index * 120}ms` }}
+                  >
+                    <p>{formatDate(day.date)}</p>
+                    <p>{getWeatherIcon(day.weatherCode)} {weatherCodeLabel[day.weatherCode] ?? 'Unknown'}</p>
             <section className="forecast">
               <h3>5-Day Forecast</h3>
               <div className="forecast-grid">
