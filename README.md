@@ -1,6 +1,7 @@
 # Weather App (React + Vite)
 
 A weather app built with React and Vite. Search for a city to view:
+A simple weather app built with React and Vite. Search for a city to view:
 
 - Current temperature and weather condition
 - Feels-like temperature, humidity, and wind

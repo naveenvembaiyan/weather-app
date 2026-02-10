@@ -58,6 +58,11 @@ body {
   box-shadow: 0 24px 44px rgba(1, 6, 17, 0.35);
   padding: 1.5rem;
   backdrop-filter: blur(10px);
+  background: rgba(14, 25, 43, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(1, 6, 17, 0.35);
+  padding: 1.5rem;
 }
 
 h1,
@@ -101,6 +106,10 @@ p {
 .location-form button:hover:not(:disabled) {
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(31, 115, 255, 0.36);
+  background: #1f73ff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .location-form button:disabled {
@@ -149,6 +158,8 @@ p {
 }
 
 .condition {
+.condition {
+  margin-top: 0.3rem;
   color: #cde9ff;
 }
 

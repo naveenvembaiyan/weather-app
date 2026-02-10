@@ -121,6 +121,7 @@ function App() {
       <div className="glow glow-two" aria-hidden="true" />
 
       <section className="weather-card fade-in">
+      <section className="weather-card">
         <h1>Weather App</h1>
         <p className="subtitle">Check current weather and 5-day forecast.</p>
 
@@ -152,6 +153,11 @@ function App() {
                   {weatherCodeLabel[currentWeather.weather_code] ?? 'Unknown condition'}
                 </p>
               </div>
+            <article className="current-weather">
+              <h2>{placeName}</h2>
+              <p className="condition">
+                {weatherCodeLabel[currentWeather.weather_code] ?? 'Unknown condition'}
+              </p>
               <p className="temp">{Math.round(currentWeather.temperature_2m)}°C</p>
               <ul>
                 <li>Feels like: {Math.round(currentWeather.apparent_temperature)}°C</li>
@@ -171,6 +177,13 @@ function App() {
                   >
                     <p>{formatDate(day.date)}</p>
                     <p>{getWeatherIcon(day.weatherCode)} {weatherCodeLabel[day.weatherCode] ?? 'Unknown'}</p>
+            <section className="forecast">
+              <h3>5-Day Forecast</h3>
+              <div className="forecast-grid">
+                {forecast.map((day) => (
+                  <article key={day.date} className="forecast-item">
+                    <p>{formatDate(day.date)}</p>
+                    <p>{weatherCodeLabel[day.weatherCode] ?? 'Unknown'}</p>
                     <p>
                       <strong>{Math.round(day.max)}°</strong> / {Math.round(day.min)}°
                     </p>
