@@ -1,0 +1,121 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #e7f5ff;
+  background: #0b1220;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1d3557 0%, #0b1220 65%);
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.weather-card {
+  width: min(800px, 100%);
+  background: rgba(14, 25, 43, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(1, 6, 17, 0.35);
+  padding: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 0.3rem;
+  color: #cde9ff;
+}
+
+.location-form {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.location-form input {
+  flex: 1;
+  font-size: 1rem;
+  border: 1px solid #86b5ff;
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.location-form button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  background: #1f73ff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.location-form button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.error {
+  margin-top: 0.9rem;
+  color: #ffb3b3;
+}
+
+.current-weather {
+  margin-top: 1.4rem;
+}
+
+.condition {
+  margin-top: 0.3rem;
+  color: #cde9ff;
+}
+
+.temp {
+  margin-top: 0.8rem;
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.current-weather ul {
+  margin-top: 0.7rem;
+  padding-left: 1rem;
+  color: #dbefff;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.forecast {
+  margin-top: 1.6rem;
+}
+
+.forecast-grid {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.6rem;
+}
+
+.forecast-item {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 0.7rem;
+  display: grid;
+  gap: 0.3rem;
+}
